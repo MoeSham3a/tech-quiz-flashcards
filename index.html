@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Aviation Tech Quiz</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Theme Colors -->
+    <meta name="theme-color" content="#4263eb">
+    <meta name="msapplication-TileColor" content="#4263eb">
+
+    <!-- iOS Specific -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AviationQuiz">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-72x72.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-72x72.png">
+
+    <!-- Description -->
+    <meta name="description"
+        content="Master your aviation technical knowledge with OMA, OMC, and FCOM questions. Practice with timed exams or study mode.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Gradient -->
+    <div class="background-gradient"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Home Screen -->
+        <div id="home-screen" class="screen active">
+            <div class="hero-section">
+                <div class="logo-container">
+                    <div class="logo-icon">✈️</div>
+                    <h1 class="main-title">Aviation Tech Quiz</h1>
+                </div>
+                <p class="subtitle">Master your aviation technical knowledge</p>
+            </div>
+
+            <div class="filters-section">
+                <h2 class="section-title">Customize Your Quiz</h2>
+
+                <div class="filter-group">
+                    <label for="book-filter">Book Type</label>
+                    <select id="book-filter" class="filter-select">
+                        <option value="all">All Books</option>
+                        <option value="Open Book">Open Book</option>
+                        <option value="Closed Book">Closed Book</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="manual-filter">Manual</label>
+                    <select id="manual-filter" class="filter-select">
+                        <option value="all">All Manuals</option>
+                        <option value="OMA">OMA</option>
+                        <option value="OMC">OMC</option>
+                        <option value="FCOM">FCOM</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mode-selection">
+                <button id="exam-mode-btn" class="mode-btn primary-btn">
+                    <div class="btn-icon">📝</div>
+                    <div class="btn-content">
+                        <h3>Exam Mode</h3>
+                        <p>Test yourself with a randomized quiz</p>
+                    </div>
+                </button>
+
+                <button id="study-mode-btn" class="mode-btn secondary-btn">
+                    <div class="btn-icon">📚</div>
+                    <div class="btn-content">
+                        <h3>Study Mode</h3>
+                        <p>Review all available questions</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <div class="quiz-info">
+                    <div class="info-badge" id="section-badge">
+                        <span class="badge-label">Section</span>
+                        <span id="current-section" class="badge-value">1</span>
+                        <span class="badge-separator">/</span>
+                        <span class="badge-value">2</span>
+                    </div>
+                    <div class="info-badge">
+                        <span class="badge-label">Question</span>
+                        <span id="current-question" class="badge-value">1</span>
+                        <span class="badge-separator">/</span>
+                        <span id="total-questions" class="badge-value">15</span>
+                    </div>
+                    <div class="info-badge" id="timer-badge">
+                        <span class="badge-label">Time</span>
+                        <span id="timer-display" class="badge-value timer-normal">20:00</span>
+                    </div>
+                    <div class="info-badge">
+                        <span class="badge-label">Score</span>
+                        <span id="current-score" class="badge-value">0</span>
+                    </div>
+                </div>
+                <button id="quit-btn" class="icon-btn" title="Quit Quiz">✕</button>
+            </div>
+
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-metadata">
+                    <span id="question-section" class="metadata-badge">Open Book</span>
+                    <span id="question-manual" class="metadata-badge">FCOM</span>
+                    <span id="question-topic" class="metadata-badge">Topic</span>
+                </div>
+
+                <div class="question-header-row">
+                    <div id="question-reference" class="question-reference">Reference: DSC-22-FG-50-60</div>
+                    <button id="remark-btn" class="remark-btn" title="Report an issue with this question">
+                        🚩 Report Issue
+                    </button>
+                </div>
+                <div id="remark-indicator" class="remark-indicator hidden">
+                    <span class="remark-icon">⚠️</span>
+                    <span id="remark-count" class="remark-count">0</span> pending remark(s)
+                </div>
+
+                <h2 id="question-text" class="question-text">
+                    Question text will appear here
+                </h2>
+
+                <div id="options-container" class="options-container">
+                    <!-- Options will be dynamically inserted -->
+                </div>
+
+                <div id="feedback-container" class="feedback-container hidden">
+                    <div class="feedback-content">
+                        <div id="feedback-icon" class="feedback-icon"></div>
+                        <div id="feedback-text" class="feedback-text"></div>
+                    </div>
+                    <div id="source-notes" class="source-notes hidden"></div>
+                </div>
+            </div>
+
+            <div class="quiz-navigation">
+                <button id="prev-btn" class="nav-btn" disabled>
+                    ← Previous
+                </button>
+                <button id="review-answers-btn" class="nav-btn secondary-outline hidden">
+                    📋 Review Answers
+                </button>
+                <button id="next-btn" class="nav-btn primary">
+                    Next →
+                </button>
+                <button id="submit-section-btn" class="nav-btn primary hidden">
+                    Submit Section
+                </button>
+            </div>
+        </div>
+
+        <!-- Section Transition Screen -->
+        <div id="transition-screen" class="screen">
+            <div class="transition-container">
+                <div class="transition-icon">✅</div>
+                <h1 class="transition-title">Section 1 Complete!</h1>
+                <p class="transition-subtitle">Great progress! You've completed the Closed Book section.</p>
+
+                <div class="section-summary">
+                    <div class="summary-stat">
+                        <div class="stat-value" id="section1-score">0/20</div>
+                        <div class="stat-label">Questions Answered</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="stat-value" id="section1-time">00:00</div>
+                        <div class="stat-label">Time Taken</div>
+                    </div>
+                </div>
+
+                <div class="next-section-info">
+                    <h2>Next: Open Book Section</h2>
+                    <p>20 questions • 40 minutes</p>
+                </div>
+
+                <button id="start-section2-btn" class="mode-btn primary-btn">
+                    <div class="btn-icon">📖</div>
+                    <div class="btn-content">
+                        <h3>Start Section 2</h3>
+                        <p>Begin Open Book questions</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="results-container">
+                <div class="results-icon">🎯</div>
+                <h1 class="results-title">Quiz Complete!</h1>
+
+                <div class="score-display">
+                    <div class="score-circle">
+                        <svg class="score-ring" viewBox="0 0 120 120">
+                            <circle class="score-ring-bg" cx="60" cy="60" r="54"></circle>
+                            <circle id="score-ring-fill" class="score-ring-fill" cx="60" cy="60" r="54"></circle>
+                        </svg>
+                        <div class="score-text">
+                            <div id="final-score" class="score-number">0</div>
+                            <div class="score-label">Score</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="correct-count">0</div>
+                        <div class="stat-label">Correct</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="incorrect-count">0</div>
+                        <div class="stat-label">Incorrect</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="percentage">0%</div>
+                        <div class="stat-label">Percentage</div>
+                    </div>
+                </div>
+
+                <div id="performance-message" class="performance-message"></div>
+
+                <div class="results-actions">
+                    <button id="review-btn" class="mode-btn secondary-btn">
+                        <div class="btn-icon">🔍</div>
+                        <div class="btn-content">
+                            <h3>Review Answers</h3>
+                            <p>See your performance</p>
+                        </div>
+                    </button>
+                    <button id="restart-btn" class="mode-btn primary-btn">
+                        <div class="btn-icon">🔄</div>
+                        <div class="btn-content">
+                            <h3>Start New Quiz</h3>
+                            <p>Try again</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Remark Modal -->
+    <div id="remark-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Report Issue</h2>
+                <button id="close-modal-btn" class="close-modal-btn">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="remark-category">Issue Type</label>
+                    <select id="remark-category" class="remark-select">
+                        <option value="phrasing">Question Phrasing/Clarity</option>
+                        <option value="reference">Reference Accuracy</option>
+                        <option value="answer">Correct Answer Dispute</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="remark-text">Suggested Correction or Description</label>
+                    <textarea id="remark-text" class="remark-textarea" rows="6"
+                        placeholder="Describe the issue or suggest a correction..."></textarea>
+                </div>
+                <div class="existing-remarks" id="existing-remarks">
+                    <!-- Existing remarks will be displayed here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-remark-btn" class="modal-btn secondary">Cancel</button>
+                <button id="submit-remark-btn" class="modal-btn primary">Submit Remark</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div id="admin-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content admin-modal-content">
+            <div class="modal-header">
+                <h2>Admin Panel - Question Remarks</h2>
+                <button id="close-admin-modal-btn" class="close-modal-btn">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="admin-actions">
+                    <button id="clear-all-remarks-btn" class="admin-btn danger">Clear All Remarks</button>
+                    <button id="export-remarks-btn" class="admin-btn secondary">Export Remarks</button>
+                </div>
+                <div id="admin-remarks-list" class="admin-remarks-list">
+                    <!-- Remarks will be listed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Access Button (Hidden by default) -->
+    <button id="admin-access-btn" class="admin-access-btn hidden" title="Admin Panel">
+        🔑
+    </button>
+
+    <!-- Scripts -->
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
