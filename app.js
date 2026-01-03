@@ -1015,8 +1015,8 @@ function registerServiceWorker() {
             .then((registration) => {
                 console.log('[PWA] Service Worker registered successfully:', registration.scope);
 
-                // Check for updates on page load
-                registration.update();
+                // Check for updates with ping verification
+                checkForUpdatesWithPing(registration);
 
                 // Listen for updates
                 registration.addEventListener('updatefound', () => {
@@ -1031,11 +1031,9 @@ function registerServiceWorker() {
                     });
                 });
 
-                // Check for updates periodically (every 60 seconds when app is open)
+                // Check for updates periodically with ping verification (every 60 seconds)
                 setInterval(() => {
-                    if (navigator.onLine) {
-                        registration.update();
-                    }
+                    checkForUpdatesWithPing(registration);
                 }, 60000);
             })
             .catch((error) => {
@@ -1051,6 +1049,37 @@ function registerServiceWorker() {
         });
     } else {
         console.log('[PWA] Service Workers not supported');
+    }
+}
+
+// Check for updates with network ping verification
+async function checkForUpdatesWithPing(registration) {
+    // Step 1: First check if browser reports online
+    if (!navigator.onLine) {
+        console.log('[PWA] Browser offline, using cached version');
+        return;
+    }
+
+    try {
+        // Step 2: Ping the server to verify actual connectivity
+        console.log('[PWA] Pinging server...');
+        const pingResponse = await fetch('/manifest.json', {
+            method: 'HEAD',
+            cache: 'no-cache',
+            signal: AbortSignal.timeout(5000) // 5 second timeout
+        });
+
+        if (!pingResponse.ok) {
+            throw new Error('Server ping failed');
+        }
+
+        // Step 3: Ping successful, check for service worker updates
+        console.log('[PWA] Server ping successful, checking for updates...');
+        await registration.update();
+
+    } catch (error) {
+        console.log('[PWA] Network verification failed:', error.message);
+        console.log('[PWA] Continuing with cached version');
     }
 }
 

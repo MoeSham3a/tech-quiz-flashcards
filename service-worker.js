@@ -54,43 +54,51 @@ self.addEventListener('activate', (event) => {
     );
 });
 
-// Fetch event - serve from cache, fallback to network
+// Fetch event - network-first with ping verification, fallback to cache
 self.addEventListener('fetch', (event) => {
     event.respondWith(
-        caches.match(event.request)
-            .then((cachedResponse) => {
-                // Return cached version if available
-                if (cachedResponse) {
-                    return cachedResponse;
-                }
-
-                // Otherwise fetch from network
-                return fetch(event.request)
-                    .then((networkResponse) => {
-                        // Don't cache non-successful responses
-                        if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
-                            return networkResponse;
+        // Try network first with ping verification
+        pingAndFetch(event.request)
+            .catch(() => {
+                // If network fails, try cache
+                return caches.match(event.request)
+                    .then((cachedResponse) => {
+                        if (cachedResponse) {
+                            console.log('[Service Worker] Serving from cache (offline):', event.request.url);
+                            return cachedResponse;
                         }
-
-                        // Clone the response
-                        const responseToCache = networkResponse.clone();
-
-                        // Cache the fetched response for future use
-                        caches.open(CACHE_NAME)
-                            .then((cache) => {
-                                cache.put(event.request, responseToCache);
-                            });
-
-                        return networkResponse;
-                    })
-                    .catch(() => {
-                        // If both cache and network fail, show offline page
-                        // For now, just fail gracefully
-                        console.log('[Service Worker] Fetch failed for:', event.request.url);
+                        // If not in cache either, fail gracefully
+                        console.log('[Service Worker] No cache available for:', event.request.url);
+                        return new Response('Offline - Resource not available', {
+                            status: 503,
+                            statusText: 'Service Unavailable'
+                        });
                     });
             })
     );
 });
+
+// Helper function: Ping and fetch with network validation
+async function pingAndFetch(request) {
+    try {
+        // Try to fetch the actual request
+        const response = await fetch(request);
+
+        // Cache successful responses
+        if (response && response.status === 200 && response.type === 'basic') {
+            const responseToCache = response.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+                cache.put(request, responseToCache);
+            });
+        }
+
+        return response;
+
+    } catch (error) {
+        console.log('[Service Worker] Network fetch failed, using cache');
+        throw error;
+    }
+}
 
 // Message event - handle messages from the app
 self.addEventListener('message', (event) => {
