@@ -44,8 +44,8 @@ const questionDatabase = {
     {
       "id": "CB_FCOM_001",
       "section": "Closed Book",
-      "manual": "FCOM",
-      "reference": "PRO-ABN-ECAM-10-21-30",
+      "manual": "FCTM",
+      "reference": "FCTM-PRO-AEP-Misc-Emergency Descent",
       "topic": "SOPs / Procedures",
       "question": "What are the initial actions of the PM during an Emergency Descent on the FIRST LOOP?",
       "options": [
@@ -84,7 +84,7 @@ const questionDatabase = {
       "options": [
         "a. As long as needed...",
         "b. Cabin Crew 1 hour, Flight Deck 40 mins",
-        "c. STD-55 (current correct answer in old exam)",
+        "c. STD-55",
         "d. STD-60"
       ],
       "correct_answer": 3,
@@ -96,8 +96,8 @@ const questionDatabase = {
       "id": "OB_FCOM_001",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "DSC-26-50-20",
-      "topic": "IFEC Questions",
+      "reference": "FCOM-DSC-26-Avionics Bays-Controls and Indicators-Entertainment Panel-IFEC Pb",
+      "topic": "Fire and SmokeProtection",
       "question": "When the IFEC PB-SW shows SMOKE, what does it mean?",
       "options": [
         "a. Smoke is detected in the shower/spa...",
@@ -128,20 +128,20 @@ const questionDatabase = {
       "citation": "[10]"
     },
     {
-      "id": "OB_FCOM_002",
-      "section": "Open Book",
+      "id": "CB_FCOM_002",
+      "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "DSC-22-FG-50-60",
+      "reference": "SYS-22-FG-Controls and Indicators-FMA-FMA-A/THR Messages and Modes (Column 1)",
       "topic": "Soft Go Around",
       "question": "In case of a go around with an engine failure what flashes on the FMA if you select Soft Go Around?",
       "options": [
         "a. LVR TOGA",
         "b. LVR CLB",
         "c. MAN SOFT G/A",
-        "d. SPFT G/A"
+        "d. SOFT G/A"
       ],
-      "correct_answer": null,
-      "correct_answer_indication": "None (Function Unavailable)",
+      "correct_answer": 0,
+      "correct_answer_indication": "None(Function Unavailable)",
       "source_notes": "NOTE: No soft mode with engine failure",
       "citation": "[11]"
     },
@@ -212,8 +212,8 @@ const questionDatabase = {
         "c. As freezing fog",
         "d. As rain on a cold soaked wing"
       ],
-      "correct_answer": null,
-      "correct_answer_indication": "Unknown/Check Source Bolding",
+      "correct_answer": 0,
+      "correct_answer_indication": "As snow",
       "source_notes": "NOTE: ACTUAL EXAM QUESTION",
       "citation": "[17]"
     },
@@ -275,7 +275,7 @@ const questionDatabase = {
       "id": "CB_OMA_006",
       "section": "Closed Book",
       "manual": "OMA",
-      "reference": "OMA 2.1.3.1",
+      "reference": "OMA 2.1.3.1?",
       "topic": "Documents",
       "question": "Must the Commander ensure that Safety Cards are available to passengers?",
       "options": [
@@ -327,7 +327,7 @@ const questionDatabase = {
       "id": "CB_OMA_009",
       "section": "Closed Book",
       "manual": "OMA",
-      "reference": "OMA 8.2.1.3",
+      "reference": "OMA 8.2.1.3.2",
       "topic": "Fuel",
       "question": "What are the Flight Crew duties during fuelling?",
       "options": [
@@ -345,7 +345,7 @@ const questionDatabase = {
       "id": "CB_OMA_010",
       "section": "Closed Book",
       "manual": "OMA",
-      "reference": "OMA 8.2.1.3",
+      "reference": "OMA 8.2.1.3.2",
       "topic": "Fuel",
       "question": "Is defueling with passengers embarking / onboard / disembarking allowed?",
       "options": [
@@ -765,8 +765,8 @@ const questionDatabase = {
       "options": [
         "a. As long as needed to perform the required duties",
         "b. Cabin Crew 1 hour, Flight Deck 40 mins",
-        "c. STD-55 (this IS CURRENTLY the correct answer in the old exam)",
-        "d. STD-60 (the is the actual correct answer)"
+        "c. STD-55",
+        "d. STD-60"
       ],
       "correct_answer": 2,
       "correct_answer_indication": "Cabin Crew 1 hour, Flight Deck 40 mins",
@@ -957,7 +957,7 @@ const questionDatabase = {
       "id": "CB_OMA_027",
       "section": "Closed Book",
       "manual": "OMA",
-      "reference": "OMA 8.3.20.2.26",
+      "reference": "OMA 8.3.20.2.27",
       "topic": "Flight Procedures",
       "question": "What are the required conditions to perform an Orbit?",
       "options": [
@@ -1083,7 +1083,7 @@ const questionDatabase = {
       "id": "CB_FCOM_014",
       "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "FCOM-DSC-32-10-30-10 Architecture",
+      "reference": "FCOM-DSC-32-System Description-Braking System-Architecture-Architecture-Emergency Braking Control Unit",
       "topic": "Brake",
       "question": "The EBCU (Emergency Brake Control Unit) receives electrical signal commands from the flight crew via?",
       "options": [
@@ -1101,8 +1101,8 @@ const questionDatabase = {
       "id": "CB_FCOM_015",
       "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "FCOM-DSC-32-10-20-10 Hydraulic Power Supply",
-      "topic": "Brake",
+      "reference": "FCOM-DSC-32-System Description-Landing Gear Extension and Retraction System-Architecture-Hydraulic Power Supply",
+      "topic": "Landing Gear",
       "question": "Which system is taking care of the WLG retraction?",
       "options": [
         "a. Green",
@@ -1119,14 +1119,14 @@ const questionDatabase = {
       "id": "CB_FCOM_016",
       "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "FCOM-DSC-32-10-30-30-50 Ultimate Braking",
+      "reference": "FCOM-DSC-32-System Description-Braking System-Architecture-Architecture-Emergency Brake Control Unit",
       "topic": "Brake",
       "question": "The EBCU (Emergency Brake Control Unit) controls Ultimate braking on the?",
       "options": [
         "a. WLG Brakes",
         "b. BLG Brakes using the Parking Brake handle",
         "c. BLG Brakes",
-        "d. BLG and WLGBrakes using the Parking Brake handle"
+        "d. BLG and WLG Brakes using the Parking Brake handle"
       ],
       "correct_answer": 0,
       "correct_answer_indication": "WLG Brakes",
@@ -1155,7 +1155,7 @@ const questionDatabase = {
       "id": "CB_FCOM_018",
       "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "FCOM-LIM-12",
+      "reference": "FCOM-LIM-Landing Gear-Maximum Altitude with Landing Gear Extended",
       "topic": "Landing Gear",
       "question": "What are limitations to extend landing gear in emergency?",
       "options": [
@@ -1281,14 +1281,12 @@ const questionDatabase = {
       "id": "CB_OMA_033",
       "section": "Closed Book",
       "manual": "OMA",
-      "reference": "OMA 8.1.3.1.1",
+      "reference": "OMA 8.1.3.1.1?8.1.6",
       "topic": "Policy",
       "question": "What weather must you use within 2hrs of your destination?",
       "options": [
         "a. Actual weather and trend information may be used",
         "b. Forecast weather may be used",
-        "c. ",
-        "d. "
       ],
       "correct_answer": 0,
       "correct_answer_indication": "Actual weather and trend information may be used",
@@ -1317,7 +1315,7 @@ const questionDatabase = {
       "id": "CB_FCOM_021",
       "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "FCOM-LIM-AG-OPS-AIR-MAX",
+      "reference": "FCOM-LIM-Aircraft General-Operational Parmeters-Airport Operations and Wind Limitations-Maximum wind for Cabin and Cargo Door Operation",
       "topic": "Limitations",
       "question": "What are the PAX (CABIN) door wind limitations when NOT into wind?",
       "options": [
@@ -1425,7 +1423,7 @@ const questionDatabase = {
       "id": "CB_FCOM_025",
       "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-22-FG-50-60",
+      "reference": "FCOM-SYS-22-FG-Autothrust-Scenario Examples-From Soft Go-Around to Thrust Reduction",
       "topic": "Autoflight",
       "question": "What is the targeted vertical speed when soft go-around thrust is applied?",
       "options": [
@@ -1461,7 +1459,7 @@ const questionDatabase = {
       "id": "CB_FCOM_027",
       "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-20-20-50 Ground CLearance Diagram",
+      "reference": "FCOM-SYS-20-Description-Ground CLearance Diagram",
       "topic": "Tailstrike",
       "question": "What bank angle will cause a wingtip or engine to scrape the ground on take off or landing?",
       "options": [
@@ -1481,7 +1479,7 @@ const questionDatabase = {
       "manual": "OMA",
       "reference": "OMA 8.1.2.1/OMC 12.1",
       "topic": "Policy",
-      "question": "What bank angle will cause a wingtip or engine to scrape the ground on take off or landing?",
+      "question": "Where will you find the list of airport categories?",
       "options": [
         "a. OMC",
         "b. OMA",
@@ -1515,7 +1513,7 @@ const questionDatabase = {
       "id": "CB_GOM_001",
       "section": "Closed Book",
       "manual": "GOM",
-      "reference": "GOM CHapter 13; 27.1",
+      "reference": "GOM Chapter 13; 27.1",
       "topic": "Cargo",
       "question": "Which cargo has HIGHEST priority (gets offloaded last if weight restricted)?",
       "options": [
@@ -1659,7 +1657,7 @@ const questionDatabase = {
       "id": "CB_FCOM_030",
       "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-29-10",
+      "reference": "FCOM-SYS-29-System Description-Hydralic Generation-Electric Pumps",
       "topic": "Hydraulics",
       "question": "Hydraulic electric pumps operate automatically?",
       "options": [
@@ -1677,7 +1675,7 @@ const questionDatabase = {
       "id": "CB_FCOM_031",
       "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-49-10",
+      "reference": "FCOM-SYS-System Description-System Architecture-ECB",
       "topic": "APU",
       "question": "What is the function of the ECB, (Electronic Control Box)?",
       "options": [
@@ -1695,7 +1693,7 @@ const questionDatabase = {
       "id": "CB_FCOM_032",
       "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "FCOM-PRO-NOR-SOP-160",
+      "reference": "FCOM-PRO-NOR-SOP-Descent Preparation",
       "topic": "Brake",
       "question": "BTV may be used when the difference between the OANS and charted runway lengths is less than?",
       "options": [
@@ -1713,7 +1711,7 @@ const questionDatabase = {
       "id": "CB_FCOM_032",
       "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-27-20-30",
+      "reference": "FCOM-SYS-27-Slats/Flaps-Controls and Indicators-Slats/Flaps Display-Flaps Lever Position",
       "topic": "Flight Controls",
       "question": "Flap lever position FULL in CYAN Blue indicates?",
       "options": [
@@ -1731,7 +1729,7 @@ const questionDatabase = {
       "id": "CB_FCOM_032",
       "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-22-27-20",
+      "reference": "FCOM-SYS-22-27-Protections-Low Energy Protection",
       "topic": "Autoflight",
       "question": "In manual flight at 3000’ and below VLS but above Alpha Prot what warning will you get?",
       "options": [
@@ -1785,7 +1783,7 @@ const questionDatabase = {
       "id": "CB_FCOM_033",
       "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "FCOM TBC",
+      "reference": "FCOM-Performance-Takeoff-Takeoff Optimization Conditions-Airport/Runway-Operations on Runway + Shoulders less than 58 m wide",
       "topic": "Performance",
       "question": "If the R/W width plus the shoulders is less than 58m is the Perf Penalty taken into account for the computation when this is displayed?",
       "options": [
@@ -1803,7 +1801,7 @@ const questionDatabase = {
       "id": "CB_FCOM_034",
       "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-30-30-10/LIM-13",
+      "reference": "FCOM-LIM-Aircraft General-Speeds-Windshield Wipers Maximum Speed",
       "topic": "Limitations",
       "question": "Windshields each have a two-speed electric wiper, limited to a maximum speed of?",
       "options": [
@@ -1821,7 +1819,7 @@ const questionDatabase = {
       "id": "CB_FCOM_035",
       "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-30-30-10/LIM-13",
+      "reference": "FCOM-SYS-Rain Removal-System Description-Wipers/LIM-Aircraft General-Speeds-Windshield Wipers Maximum Speed",
       "topic": "Ice and Rain Protection",
       "question": "When can you operate the windshield wipe?",
       "options": [
@@ -1839,7 +1837,7 @@ const questionDatabase = {
       "id": "CB_FCOM_036",
       "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-30-30-10/LIM-13",
+      "reference": "FCOM-SYS-30-Rain Removal-System Description-Wipers",
       "topic": "Ice and Rain Protection",
       "question": "When can you operate the windshield wipe?",
       "options": [
@@ -1929,7 +1927,7 @@ const questionDatabase = {
       "id": "CB_FCOM_040",
       "section": "Closed Book",
       "manual": "FCOM",
-      "reference": "FCOM-LIM-22-30",
+      "reference": "FCOM-LIM-22-30?FCOM-PRO-NOR-SOP-Approach-Approach Guidance Management-Approach Using LOC G/S Guidance-Initial/Intermediate Approach",
       "topic": "Autoflight",
       "question": "Should both Autopilots be engaged for GLS autoland?",
       "options": [
@@ -1965,7 +1963,7 @@ const questionDatabase = {
       "id": "CB_RAIG_001",
       "section": "Closed Book",
       "manual": "RAIG",
-      "reference": "RAIG F2.1",
+      "reference": "RAIG F2.1?",
       "topic": "Policy",
       "question": "Under which circumstances must a commander consider a diversion to a safe and acceptable aerodrome (Which of the following is LAND ANSA)?",
       "options": [
@@ -2037,7 +2035,7 @@ const questionDatabase = {
       "id": "CB_FCI_001",
       "section": "Closed Book",
       "manual": "FCI",
-      "reference": "FCI 2024-21",
+      "reference": "FCI 2024-21/FCOM-PRO-NOR-SUP-GPS Interference-Enroute-After the Interference Area",
       "topic": "GPS Interference",
       "question": "What would you do if the Clock is set to INT when entering oceanic airspace?",
       "options": [
@@ -2073,7 +2071,7 @@ const questionDatabase = {
       "id": "OB_FCOM_041",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-24-10-20",
+      "reference": "FCOM-SYS-49-System Description-System Architecture-APU Generators",
       "topic": "Electrics",
       "question": "Is the APU KVA same as Engine gen KVA?",
       "options": [
@@ -2145,7 +2143,7 @@ const questionDatabase = {
       "id": "OB_FCOM_045",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-PRO-ABN-ECAM-10-34-10",
+      "reference": "FCOM-PRO-ABN-Nav-ADR1(2)(3) FAULT",
       "topic": "Electrics",
       "question": "How does ADR1(3) fault affect APU GEN operation?",
       "options": [
@@ -2163,7 +2161,7 @@ const questionDatabase = {
       "id": "OB_FCOM_046",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-24-10-20",
+      "reference": "FCOM-SYS-24-System Description-AC Generation-AC Generation-APU Generators",
       "topic": "Electrics",
       "question": "What is the result of ADR 1(3) failing in flight upon the APU generators?",
       "options": [
@@ -2253,7 +2251,7 @@ const questionDatabase = {
       "id": "OB_FCOM_051",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-32-10-20",
+      "reference": "FCOM-SYS-32-System Description-Braking System-braking Modes-Normal Braking Architecture",
       "topic": "Hydraulics",
       "question": "Which hydraulic system is used for BLG brakes?",
       "options": [
@@ -2307,7 +2305,7 @@ const questionDatabase = {
       "id": "OB_FCOM_054",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-29-10",
+      "reference": "FCOM-SYS-29-System Description-Hydraulic Generation-Engine Driven Pump",
       "topic": "Hydraulics",
       "question": "Regarding hydraulic engine driven pumps which is correct?",
       "options": [
@@ -2325,7 +2323,7 @@ const questionDatabase = {
       "id": "OB_FCOM_055",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-29-10",
+      "reference": "FCOM-SYS-29-Controls and Indicators-Hydraulic System Display-Reservoir Overheat",
       "topic": "Hydraulics",
       "question": "On the Hydraulic System Display, what Temp is associated with an “OVHT” indication (amber colour)?",
       "options": [
@@ -2379,14 +2377,14 @@ const questionDatabase = {
       "id": "OB_FCOM_058",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-32-10-40",
+      "reference": "FCOM-SYS-32-System Description-Steering System-Body Wheel Steering",
       "topic": "Hydraulics",
       "question": "The BWS activates when?",
       "options": [
-        "a. Automatically when the NWS angle is higher than 200 and the ground speed is less than 30kt",
-        "b. Automatically when the NWS angle is higher than 300 and the ground speed is less than 20kt",
-        "c. Automatically when the NWS angle is higher than 100 and the ground speed is less than 20kt",
-        "d. Automatically when the NWS angle is higher than 200 and the ground speed is less than 10kt"
+        "a. Automatically when the NWS angle is higher than 20 degrees and the ground speed is less than 30kt",
+        "b. Automatically when the NWS angle is higher than 30 degrees and the ground speed is less than 20kt",
+        "c. Automatically when the NWS angle is higher than 10 degrees and the ground speed is less than 20kt",
+        "d. Automatically when the NWS angle is higher than 20 degrees and the ground speed is less than 10kt"
       ],
       "correct_answer": 0,
       "correct_answer_indication": "Automatically when the NWS angle is higher than 200 and the ground speed is less than 30kt",
@@ -2451,7 +2449,7 @@ const questionDatabase = {
       "id": "OB_FCTM_005",
       "section": "Open Book",
       "manual": "FCTM",
-      "reference": "FCTM-PRO-NOR-SOP-70-A LOADSHEET",
+      "reference": "FCTM-PRO-NOR-SOP-70-A LOADSHEET/FCOM-PRO-NOR-SOP-Before Pushback or Start/Before Pushback/Start Clearance-Loadsheet",
       "topic": "Fuel",
       "question": "What are the GWCG requirements after refueling?",
       "options": [
@@ -2487,7 +2485,7 @@ const questionDatabase = {
       "id": "OB_FCOM_061",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM",
+      "reference": "FCOM-PRO-NOR-SOP-Before Pushback or Start/Before Pushback/Start Clearance-Loadsheet",
       "topic": "Fuel",
       "question": "The trim tank tolerance is?",
       "options": [
@@ -2631,7 +2629,7 @@ const questionDatabase = {
       "id": "OB_FCOM_064",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-ME-ECAM-28",
+      "reference": "FCOM-PRO-ABN-Fuel-Fuel Abnorm Auto Refuel Distribution",
       "topic": "Fuel",
       "question": "When do you get the ECAM FUEL ABNORM AUTO REFUEL DISTRIBUTION?",
       "options": [
@@ -2721,7 +2719,7 @@ const questionDatabase = {
       "id": "OB_FCOM_067",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-28-40 JETTISON TERMINATION",
+      "reference": "FCOM-SYS-28-Abnormal Operations-Fuel Jettison-Jettison Termination",
       "topic": "Fuel",
       "question": "Fuel Jettison is terminated under what conditions?",
       "options": [
@@ -2793,7 +2791,7 @@ const questionDatabase = {
       "id": "OB_FCOM_071",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-22-27-20",
+      "reference": "FCOM-SYS-22-27-Protections-Low Energy Protection",
       "topic": "Autoflight",
       "question": "In manual flight at 3000’ and below VLS but above Alpha Prot what warning will you get?",
       "options": [
@@ -2847,7 +2845,7 @@ const questionDatabase = {
       "id": "OB_FCOM_074",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-32-10-30-10",
+      "reference": "FCOM-SYS-32-System Description-Braking System-Architecture-Architecture-Braking Control System",
       "topic": "Brakes",
       "question": "What does the Braking Control System Control?",
       "options": [
@@ -2883,7 +2881,7 @@ const questionDatabase = {
       "id": "OB_FCOM_076",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-32-10-30-10",
+      "reference": "FCOM-SYS-32-System Description-Braking System-Architecture-Architecture-Emergency Braking Control Unit",
       "topic": "Brakes",
       "question": "When is the EBCU activate automatically?",
       "options": [
@@ -2901,7 +2899,7 @@ const questionDatabase = {
       "id": "OB_FCOM_077",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-32-10-30-10",
+      "reference": "FCOM-SYS-32-System Description-Braking System-Architecture-Architecture-Emergency Braking Control Unit",
       "topic": "Brakes",
       "question": "The EBCU controls Emergency Braking and Ultimate Braking. When does it activate automatically and which wheels does it affect?",
       "options": [
@@ -2937,7 +2935,7 @@ const questionDatabase = {
       "id": "OB_FCOM_079",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-32-10-50",
+      "reference": "FCOM-SYS-32-System Description-Brake Temperature Monitoring System (BTMS)",
       "topic": "Brakes",
       "question": "What is the range of the Brake Temp Monitoring System (BTMS)?",
       "options": [
@@ -3084,7 +3082,7 @@ const questionDatabase = {
       "id": "OB_FCOM_087",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-32-10-30-30 SUMMARY OF BRAKING MODES",
+      "reference": "FCOM-SYS-32-System Description-Braking System-Braking ModesSUMMARY OF BRAKING MODES",
       "topic": "Brakes",
       "question": "What powers the brakes in Alternate, Emergency and Ultimate braking modes?",
       "options": [
@@ -3120,14 +3118,14 @@ const questionDatabase = {
       "id": "OB_FCOM_089",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-70-20-20",
+      "reference": "FCOM-SYS-70-System Description-FADEC-Engine Protections-Engine Protections-Adverse Weather",
       "topic": "Engines",
       "question": "Which of the following is true regarding continuous engine ignition in heavy rain or hail?",
       "options": [
         "a. Heavy rain or hail does not affect engine operation.",
         "b. The FADEC will not automatically switch on engine igniters during operation in heavy rain or hail.",
         "c. Heavy rain or hail does not affect engine operation. However, if the FADEC detects a risk of engine flame out to excessive rain or hail at low engine power (i.e. idle) the FADEC automatically generates an ECAM to switch on both igniters.",
-        "d. Heavy rain or hail does not affect engine operation. However, if the FADEC detects a risk of engine flame out due to excessive rain or hail at low engine power (i.e. idle) the FEDEC automatically switches on both igniters."
+        "d. Heavy rain or hail does not affect engine operation. However, if the FADEC detects a risk of engine flame out due to excessive rain or hail at low engine power (i.e. idle) the FADEC automatically switches on both igniters."
       ],
       "correct_answer": 3,
       "correct_answer_indication": "Heavy rain or hail does not affect engine operation. However, if the FADEC detects a risk of engine flame out due to excessive rain or hail at low engine power (i.e. idle) the FEDEC automatically switches on both igniters.",
@@ -3138,7 +3136,7 @@ const questionDatabase = {
       "id": "OB_FCOM_090",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-26-20-10",
+      "reference": "FCOM-SYS-26-Engines-Description-Engine Fire Protection - Detection-Fire Detection",
       "topic": "Fire Protection",
       "question": "Which are the Engine fire sensitive zones?",
       "options": [
@@ -3156,7 +3154,7 @@ const questionDatabase = {
       "id": "OB_FCOM_091",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-LIM-22-30/FCOM-PRO-ABN-ECAM-10-7",
+      "reference": "FCOM-PRO-ABN-ENG-Two Engs Out on Opposite Side",
       "topic": "Autoflight",
       "question": "With 2 ENG INOP on the opposite side, ILS approach and configuration is approved giving the lowest minima?",
       "options": [
@@ -3174,7 +3172,7 @@ const questionDatabase = {
       "id": "OB_FCOM_092",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-70-10-70-70-20",
+      "reference": "FCOM-SYS-70-System Description-Thrust Reverser System-Thrust Reverser Protections-Auto-Idle Protection",
       "topic": "Engines",
       "question": "What ensures that the outer engines are at idle during thrust reversers operations?",
       "options": [
@@ -3192,12 +3190,12 @@ const questionDatabase = {
       "id": "OB_FCOM_092",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-LIM-22-30",
+      "reference": "FCOM-LIM-22-30?",
       "topic": "Autoflight",
       "question": "Can you perform a GLS approach to CAT 1 minima with 2 ENG OUT on the same side?",
       "options": [
         "a. YES if ENG out are on different sides",
-        "b. NO if ENG out are on the same side Both A & B are correct",
+        "b. NO if ENG out are on the same side",
         "c. Both A & B are correct",
         "d. "
       ],
@@ -3246,7 +3244,7 @@ const questionDatabase = {
       "id": "OB_FCOM_095",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-30-10-10",
+      "reference": "FCOM-SYS-30-Ice Protection-System Description-Ice Detection-Ice Detection System",
       "topic": "Ice & Rain Protection",
       "question": "The ECAM ice detected is triggered under what conditions?",
       "options": [
@@ -3390,7 +3388,7 @@ const questionDatabase = {
       "id": "OB_FCOM_099",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-30-10-10",
+      "reference": "FCOM-SYS-30-Ice Protection-System Description-Overview",
       "topic": "Ice & Rain Protection",
       "question": "What ice protection comes from electrical power?",
       "options": [
@@ -3408,7 +3406,7 @@ const questionDatabase = {
       "id": "OB_OMA_051",
       "section": "Open Book",
       "manual": "OMA",
-      "reference": "OMA 8.1.5.3.2",
+      "reference": "OMA 8.1.5.1",
       "topic": "Policy",
       "question": "What is the Takeoff Operating minima for Category ‘C’ respective ‘D’ aircraft on a runway equipped with runway edge and centerline lights will never be less than?",
       "options": [
@@ -3444,7 +3442,7 @@ const questionDatabase = {
       "id": "OB_OMC_003",
       "section": "Open Book",
       "manual": "OMC",
-      "reference": "OMC 10.1.7.3.1",
+      "reference": "OMC 10.1.8.3.1",
       "topic": "Procedures",
       "question": "MORA is displayed on the OFP and based on which parameters?",
       "options": [
@@ -3462,7 +3460,7 @@ const questionDatabase = {
       "id": "OB_OMC_004",
       "section": "Open Book",
       "manual": "OMC",
-      "reference": "OMC 10.1.7.2",
+      "reference": "OMC 10.1.8.2",
       "topic": "Procedures",
       "question": "Which altitude does the OFP show in two digits?",
       "options": [
@@ -3498,7 +3496,7 @@ const questionDatabase = {
       "id": "OB_OMC_005",
       "section": "Open Book",
       "manual": "OMC",
-      "reference": "OMC 10.1.7.3.1",
+      "reference": "OMC 10.1.8.3.1",
       "topic": "Procedures",
       "question": "What is the definition of MORA in the OFP?",
       "options": [
@@ -3534,7 +3532,7 @@ const questionDatabase = {
       "id": "OB_FCOM_102",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-DSC-26-10-10",
+      "reference": "FCOM-DSC-26-System Description-Description-Fire Detection unit",
       "topic": "Fire Protection",
       "question": "What does the FDU (Fire Detection Unit) monitor for fire detection?",
       "options": [
@@ -3552,7 +3550,7 @@ const questionDatabase = {
       "id": "OB_FCOM_103",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-DSC-26-10-10",
+      "reference": "FCOM-DSC-26-System Description-Description-Fire Detection unit",
       "topic": "Fire Protection",
       "question": "The FDU (Fire Detection Unit) monitors MLG for fire detection. The FDU also monitors fire detection and manages fire extinguishing in which areas?",
       "options": [
@@ -3624,7 +3622,7 @@ const questionDatabase = {
       "id": "OB_FCOM_105",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-DSC-26-50-20",
+      "reference": "FCOM-DSC-26-Avionics Bays-Controls and Indicators-Entertainment Panel-IFEC Pb",
       "topic": "IFEC",
       "question": "When the IFEC PB-SW shows SMOKE, what does it mean?",
       "options": [
@@ -3732,7 +3730,7 @@ const questionDatabase = {
       "id": "OB_FCOM_107",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-DSC-34-10-40-10",
+      "reference": "FCOM-DSC-34-GPS-System Description-GPS Data to FMS",
       "topic": "Navigation",
       "question": "What GPS data is sent to the FMS via the ADIRS?",
       "options": [
@@ -3750,16 +3748,16 @@ const questionDatabase = {
       "id": "OB_FCOM_108",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-DSC-34-10-30-10",
+      "reference": "FCOM-DSC-34-GPS-System Description-GPS Function-GPS Data to ADIRS",
       "topic": "Navigation",
       "question": "What information does the GPS send to the ADIRS?",
       "options": [
         "a. The MMR sends GPS position to the ADIRS to align the IR part",
         "b. The IR part also uses the GPS data to compute the GPS/IRS position",
-        "c. ",
+        "c. a and b",
         "d. ",
       ],
-      "correct_answer": 1,
+      "correct_answer": 2,
       "correct_answer_indication": "The IR part also uses the GPS data to compute the GPS/IRS position",
       "source_notes": "",
       "citation": ""
@@ -3768,7 +3766,7 @@ const questionDatabase = {
       "id": "OB_FCOM_109",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-DSC-22-fms-10-30-10-22",
+      "reference": "FCOM-SYS-22 AFS FMS-System Description-Navigation functions-Aircraft Position-Position Computation Inertial-IRS Position",
       "topic": "Navigation",
       "question": "How does IRS alignment take place if the GPS position is not available?",
       "options": [
@@ -3840,7 +3838,7 @@ const questionDatabase = {
       "id": "OB_FCOM_113",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM-SYS-34-10-30-20",
+      "reference": "FCOM-SYS-34-ADIRS-Normal Operations-IR Alignment-Complete Alignment",
       "topic": "Navigation",
       "question": "What is used to determine attitude in ADIRS?",
       "options": [
@@ -4038,7 +4036,7 @@ const questionDatabase = {
       "id": "OB_OMA_059",
       "section": "Open Book",
       "manual": "OMA",
-      "reference": "OMA 8.1.8.1.5",
+      "reference": "OMA 8.1.8.5",
       "topic": "Policy",
       "question": "What are the age and weight definitions for an adult passenger?",
       "options": [
@@ -4056,7 +4054,7 @@ const questionDatabase = {
       "id": "OB_FCOM_121",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM DSC-31-40-10",
+      "reference": "FCOM DSC-31-Control and Display System-ECAM-System Description-Procedure Description-Procedure Description",
       "topic": "Indicating and recording systems",
       "question": "Auto Recall indication means?",
       "options": [
@@ -4092,7 +4090,7 @@ const questionDatabase = {
       "id": "OB_FCOM_122",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM DSC-32-10-20",
+      "reference": "FCOM DSC-32-System Description-Landing Gear Extension Retraction System-Architecture-Landing Gear Control and Indication System",
       "topic": "Landing Gear",
       "question": "Which landing gear is extended first and why?",
       "options": [
@@ -4110,9 +4108,9 @@ const questionDatabase = {
       "id": "OB_FCOM_123",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM DSC-32-10-60",
+      "reference": "FCOM DSC-32-System Description-Tire Pressure Monitoring System-Tire Pressure Indicating System (TPIS)",
       "topic": "Landing Gear",
-      "question": "Which landing gear is extended first and why?",
+      "question": "What system measures the pressure of each tire?",
       "options": [
         "a. Tire pressures are not monitored",
         "b. The tire Pressure and Brake Indicating System",
@@ -4146,7 +4144,7 @@ const questionDatabase = {
       "id": "OB_FCOM_125",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM DSC-32-40-10 LANDING GEAR GRAVITY EXTENSION CONTROL",
+      "reference": "FCOM DSC-32-Abnormal Operations-Landing Gear Gravity extension-Landing Gear Gravity Extension Control",
       "topic": "Landing Gear",
       "question": "How are the retraction actuators isolated from the hydraulic power during LANDING GEAR GRAVITY EXTENSION?",
       "options": [
@@ -4218,11 +4216,11 @@ const questionDatabase = {
       "id": "OB_FCOM_126",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM DSC-22-FMS-30",
+      "reference": "FCOM DSC-22-FMS-Abnormal Operations-Independent Mode",
       "topic": "Autoflight",
       "question": "When does the FMS change from dual to independent mode?",
       "options": [
-        "a. The FMS’s chances from dual to independent mode if there is a single FMC failure",
+        "a. The FMS’s change from dual to independent mode if there is a single FMC failure",
         "b. When the NAV database is expired by more than 30 days",
         "c. When the FMS is asked to perform operations that are not possible",
         "d. The FMS’s change from dual to independent mode if there is a communication failure( avionics network problem)between the active FMC’s",
@@ -4254,7 +4252,7 @@ const questionDatabase = {
       "id": "OB_OMA_063",
       "section": "Open Book",
       "manual": "OMA",
-      "reference": "OMA 8.1.5.3.2",
+      "reference": "OMA 8.1.5.1",
       "topic": "Policy",
       "question": "Which of the following requirements has NOT to be met, to allow qualified crews reducing their takeoff minima to 150 or 125 m respectively?",
       "options": [
@@ -4272,7 +4270,7 @@ const questionDatabase = {
       "id": "OB_OMA_064",
       "section": "Open Book",
       "manual": "OMA",
-      "reference": "OMA 5.2.16.2",
+      "reference": "OMA 5.2.4.4",
       "topic": "Policy",
       "question": "Which of the following is NOT a First Officer restriction for takeoff or Landing?",
       "options": [
@@ -4290,7 +4288,7 @@ const questionDatabase = {
       "id": "OB_OMA_065",
       "section": "Open Book",
       "manual": "OMA",
-      "reference": "OMA 5.2.16.2",
+      "reference": "OMA 5.2.4.4",
       "topic": "Policy",
       "question": "Which of the following is NOT a First Officer restriction for takeoff or Landing?",
       "options": [
@@ -4381,7 +4379,7 @@ const questionDatabase = {
       "id": "OB_OMA_068",
       "section": "Open Book",
       "manual": "OMA",
-      "reference": "OMA 8.1.5.3.2",
+      "reference": "OMA 8.1.5.1",
       "topic": "Policy",
       "question": "What is the minimum visibility for take-off when the RVR are reported in all the relevant points and with Edge lights + runway RCLL?",
       "options": [
@@ -4399,7 +4397,7 @@ const questionDatabase = {
       "id": "OB_OMA_069",
       "section": "Open Book",
       "manual": "OMA",
-      "reference": "OMA 8.1.5.3.2",
+      "reference": "OMA 8.1.5.1",
       "topic": "Policy",
       "question": "Is take off permitted if no RVR is provided?",
       "options": [
@@ -4417,7 +4415,7 @@ const questionDatabase = {
       "id": "OB_OMA_070",
       "section": "Open Book",
       "manual": "OMA",
-      "reference": "OMA 8.1.5.3.3.2",
+      "reference": "OMA 8.1.5.3.1",
       "topic": "Policy",
       "question": "Which lighting system is NOT an approved visual clue during a CAT 1 approach?",
       "options": [
@@ -4453,7 +4451,7 @@ const questionDatabase = {
       "id": "OB_FCOM_130",
       "section": "Open Book",
       "manual": "FCOM",
-      "reference": "FCOM DCS-34-20-10",
+      "reference": "FCOM DCS-34-Surveillance-System Description-Architecture-Surv Sys",
       "topic": "Navigation",
       "question": "When on the ground which AESU SYS 1(2) is selected as the MASTER?",
       "options": [
@@ -4507,7 +4505,7 @@ const questionDatabase = {
       "id": "OB_OMC_007",
       "section": "Open Book",
       "manual": "OMC",
-      "reference": "OMC 10.3.1/LIDO 1.3.9",
+      "reference": "OMC 10.3.1?/LIDO 1.3.9.4",
       "topic": "Procedures",
       "question": "In a GRF snowtam what does M) RWY 14L SNOWBANK R30 FM CL mean",
       "options": [
@@ -4705,7 +4703,7 @@ const questionDatabase = {
       "id": "OB_OMA_076",
       "section": "Open Book",
       "manual": "OMA",
-      "reference": "OMA 6.1.1.4",
+      "reference": "OMA 6.1.14",
       "topic": "Policy",
       "question": "A crew Member should not fly within 12 hours of a no decompression dive. Up to how many hours are required if the dive required decompression stops?",
       "options": [
@@ -4723,7 +4721,7 @@ const questionDatabase = {
       "id": "OB_FCI_002",
       "section": "Open Book",
       "manual": "FCI",
-      "reference": "FCI 2024-21",
+      "reference": "FCI 2024-21/FCOM-PRO-NOR-SUP-GPS Interference-Enroute-After the Interference Area",
       "topic": "Procedures",
       "question": "What would you do if the Clock is set to INT when entering oceanic airspace?",
       "options": [
