@@ -60,21 +60,6 @@ const questionDatabase = {
       "citation": "[5, 6]"
     },
     {
-      "id": "CB_OMA_002",
-      "section": "Closed Book",
-      "manual": "OMA",
-      "reference": "OMA 7.6.1",
-      "topic": "FDP",
-      "question": "When does the FDP start and end?",
-      "options": [
-        "a. Dubai 1h25min to chocks on / Outstation 1h to chocks on"
-      ],
-      "correct_answer": 0,
-      "correct_answer_indication": "Refer to Manual",
-      "source_notes": null,
-      "citation": "[7]"
-    },
-    {
       "id": "OB_OMC_001",
       "section": "Open Book",
       "manual": "OMC",
@@ -804,7 +789,7 @@ const questionDatabase = {
         "c. Dubai 1h25min to chocks on / Outstation 1h05min to chocks on",
         "d. Dubai 1h40min to chocks on / Outstation 1h05min to chocks on"
       ],
-      "correct_answer": 2,
+      "correct_answer": 0,
       "correct_answer_indication": "Dubai 1h25min to chocks on / Outstation 1h05min to chocks on",
       "source_notes": "",
       "citation": "[21]"
@@ -1322,11 +1307,11 @@ const questionDatabase = {
         "a. LVR TOGA",
         "b. LVR CLB",
         "c. MAN SOFT G/A",
-        "d. SPFT G/A as soft go around is still available with one engine inoperative. NOTE: No soft mode with engine failure"
+        "d. SPFT G/A as soft go around is still available with one engine inoperative."
       ],
       "correct_answer": 0,
       "correct_answer_indication": "LVR TOGA",
-      "source_notes": "",
+      "source_notes": "No soft mode with engine failure",
       "citation": "[21]"
     },
     {
@@ -3093,8 +3078,8 @@ const questionDatabase = {
       ],
       "correct_answer": 3,
       "correct_answer_indication": "N1",
-      "source_notes": "",
-      "citation": "NOTE: ACTUAL EXAM QUESTION"
+      "source_notes": "ACTUAL EXAM QUESTION",
+      "citation": ""
     },
     {
       "id": "OB_FCOM_089",
@@ -3773,11 +3758,11 @@ const questionDatabase = {
         "a. If the ADR’s are OFF the bird is computed from the IRS data only and is considered reliable even if the Air Data is not reliable.",
         "b. The bird is always reliable",
         "c. If the ADR’s are OFF the bird is computed from GPS and IRS data only and is considered reliable even if the Air Data is not reliable.",
-        "d. If the ADR’s are OFF the bird is computed from GPS data only and is considered reliable even if the Air Data is not reliable. NOTE: Not displayed unless it is reliable.",
+        "d. If the ADR’s are OFF the bird is computed from GPS data only and is considered reliable even if the Air Data is not reliable.",
       ],
       "correct_answer": 2,
       "correct_answer_indication": "If the ADR’s are OFF the bird is computed from GPS and IRS data only and is considered reliable even if the Air Data is not reliable.",
-      "source_notes": "NOTE: Not displayed unless it is reliable",
+      "source_notes": "Not displayed unless it is reliable",
       "citation": ""
     },
     {
