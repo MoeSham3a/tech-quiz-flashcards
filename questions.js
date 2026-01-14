@@ -4703,8 +4703,8 @@ const questionDatabase = {
       "citation": ""
     },
     {
-      "id": "OB_OMA_077",
-      "section": "Open Book",
+      "id": "CB_OMA_077",
+      "section": "Closed Book",
       "manual": "OMA",
       "reference": "OMA 6.1.15",
       "topic": "Policy",
