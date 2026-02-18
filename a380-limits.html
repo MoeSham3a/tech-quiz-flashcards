@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>A380 Limitations Quiz | Aviation Tech Quiz</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Theme Colors -->
+    <meta name="theme-color" content="#4263eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AviationQuiz">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-72x72.png">
+
+    <!-- Description -->
+    <meta name="description"
+        content="Test your knowledge of A380 aircraft limitations — speeds, weights, altitudes, temperatures and more.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ── Page-specific overrides & additions ── */
+
+        /* Back link in header */
+        .lim-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--color-bg-elevated);
+            transition: all var(--transition-normal);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .lim-back-link:hover {
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+            transform: translateX(-3px);
+        }
+
+        /* Home screen card */
+        .lim-home-card {
+            background: var(--color-bg-card);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .lim-home-icon {
+            font-size: 4rem;
+            margin-bottom: var(--spacing-md);
+            filter: drop-shadow(0 4px 16px rgba(66, 99, 235, 0.5));
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .lim-home-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .lim-home-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.7;
+        }
+
+        .lim-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .lim-stat-box {
+            background: var(--color-bg-elevated);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+        }
+
+        .lim-stat-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--color-primary);
+        }
+
+        .lim-stat-label {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+
+        .lim-start-btn {
+            width: 100%;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            border: none;
+            background: var(--gradient-primary);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .lim-start-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .lim-start-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Quiz screen */
+        .lim-quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--color-bg-card);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-md);
+            box-shadow: var(--shadow-sm);
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .lim-category-badge {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .lim-progress-label {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            font-weight: 600;
+        }
+
+        .lim-progress-label span {
+            color: var(--color-primary);
+            font-weight: 800;
+        }
+
+        /* Progress bar */
+        .lim-progress-bar {
+            height: 6px;
+            background: var(--color-bg-elevated);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .lim-progress-fill {
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: width var(--transition-slow);
+            border-radius: 3px;
+        }
+
+        /* Question card */
+        .lim-question-card {
+            background: var(--color-bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-lg);
+            margin-bottom: var(--spacing-lg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .lim-question-text {
+            font-size: 1.375rem;
+            font-weight: 600;
+            line-height: 1.6;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .lim-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .lim-unit-hint {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .lim-answer-input {
+            width: 100%;
+            background: var(--color-bg-elevated);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            color: var(--color-text-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: inherit;
+            padding: var(--spacing-md) var(--spacing-lg);
+            transition: all var(--transition-normal);
+            text-align: center;
+            letter-spacing: 0.05em;
+        }
+
+        .lim-answer-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(66, 99, 235, 0.2);
+            background: var(--color-bg-card);
+        }
+
+        .lim-answer-input:disabled {
+            opacity: 0.8;
+            cursor: not-allowed;
+        }
+
+        .lim-answer-input.correct-input {
+            border-color: var(--color-success);
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(20, 184, 166, 0.1));
+        }
+
+        .lim-answer-input.incorrect-input {
+            border-color: var(--color-error);
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(251, 146, 60, 0.1));
+        }
+
+        .lim-submit-btn {
+            width: 100%;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            border: none;
+            background: var(--gradient-primary);
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            margin-top: var(--spacing-sm);
+        }
+
+        .lim-submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .lim-submit-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        /* Feedback box */
+        .lim-feedback {
+            margin-top: var(--spacing-lg);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            animation: slideDown var(--transition-normal);
+        }
+
+        .lim-feedback.hidden {
+            display: none;
+        }
+
+        .lim-feedback.correct {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(20, 184, 166, 0.15));
+            border: 2px solid var(--color-success);
+        }
+
+        .lim-feedback.incorrect {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(251, 146, 60, 0.15));
+            border: 2px solid var(--color-error);
+        }
+
+        .lim-feedback-content {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .lim-feedback-icon {
+            font-size: 2rem;
+        }
+
+        .lim-feedback-text {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .lim-correct-answer {
+            margin-top: var(--spacing-sm);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-success-light);
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .lim-correct-answer.hidden {
+            display: none;
+        }
+
+        /* Navigation */
+        .lim-navigation {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .lim-nav-btn {
+            flex: 1;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--radius-md);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: var(--color-bg-card);
+            color: var(--color-text-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+
+        .lim-nav-btn:hover:not(:disabled) {
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .lim-nav-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .lim-nav-btn.primary {
+            background: var(--gradient-primary);
+            border-color: transparent;
+        }
+
+        .lim-nav-btn.success {
+            background: var(--gradient-success);
+            border-color: transparent;
+            color: white;
+        }
+
+        .lim-nav-btn.hidden {
+            display: none;
+        }
+
+        /* Results screen */
+        .lim-results-card {
+            background: var(--color-bg-card);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .lim-results-icon {
+            font-size: 4rem;
+            margin-bottom: var(--spacing-md);
+            filter: drop-shadow(0 4px 16px rgba(66, 99, 235, 0.5));
+            animation: celebrate 1s ease-in-out;
+        }
+
+        .lim-results-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .lim-score-display {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.25rem;
+        }
+
+        .lim-pct-display {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .lim-perf-msg {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            padding: var(--spacing-md);
+            background: var(--color-bg-elevated);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .lim-results-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .lim-action-btn {
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--radius-md);
+            border: none;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+
+        .lim-action-btn.primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .lim-action-btn.secondary {
+            background: var(--color-bg-elevated);
+            color: var(--color-text-primary);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .lim-action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Review list */
+        .lim-review-section {
+            text-align: left;
+        }
+
+        .lim-review-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-text-primary);
+        }
+
+        .review-item {
+            background: var(--color-bg-elevated);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            border-left: 4px solid;
+        }
+
+        .review-item.correct {
+            border-left-color: var(--color-success);
+        }
+
+        .review-item.incorrect {
+            border-left-color: var(--color-error);
+        }
+
+        .review-item-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: 0.5rem;
+        }
+
+        .review-icon {
+            font-size: 1.1rem;
+        }
+
+        .review-category {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-muted);
+            background: var(--color-bg-card);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+        }
+
+        .review-question {
+            font-size: 0.95rem;
+            color: var(--color-text-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .review-answers {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            font-size: 0.875rem;
+        }
+
+        .correct-text {
+            color: var(--color-success-light);
+        }
+
+        .incorrect-text {
+            color: var(--color-error-light);
+        }
+
+        .review-correct-answer {
+            color: var(--color-success-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .lim-home-title {
+                font-size: 1.8rem;
+            }
+
+            .lim-stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lim-question-text {
+                font-size: 1.125rem;
+            }
+
+            .lim-answer-input {
+                font-size: 1.25rem;
+            }
+
+            .lim-results-title {
+                font-size: 1.8rem;
+            }
+
+            .lim-score-display {
+                font-size: 2.5rem;
+            }
+
+            .lim-results-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .lim-navigation {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-gradient"></div>
+
+    <div class="container" style="align-items: flex-start; padding-top: 2rem;">
+        <div style="width: 100%;">
+
+            <!-- Back link -->
+            <a href="index.html" class="lim-back-link">← Back to Home</a>
+
+            <!-- ── HOME SCREEN ─────────────────────────────────────────── -->
+            <div id="lim-home-screen" class="screen">
+                <div class="lim-home-card">
+                    <div class="lim-home-icon">✈️</div>
+                    <h1 class="lim-home-title">A380 Limitations</h1>
+                    <p class="lim-home-subtitle">
+                        Test your knowledge of A380 aircraft limitations.<br>
+                        Type the correct value for each limitation from memory.
+                    </p>
+
+                    <div class="lim-stats-grid">
+                        <div class="lim-stat-box">
+                            <div class="lim-stat-value">100</div>
+                            <div class="lim-stat-label">Questions</div>
+                        </div>
+                        <div class="lim-stat-box">
+                            <div class="lim-stat-value">14</div>
+                            <div class="lim-stat-label">Categories</div>
+                        </div>
+                        <div class="lim-stat-box">
+                            <div class="lim-stat-value">Fill-in</div>
+                            <div class="lim-stat-label">Format</div>
+                        </div>
+                    </div>
+
+                    <button id="lim-start-btn" class="lim-start-btn">
+                        🚀 Start Quiz
+                    </button>
+                </div>
+            </div>
+
+            <!-- ── QUIZ SCREEN ─────────────────────────────────────────── -->
+            <div id="lim-quiz-screen" class="screen">
+
+                <!-- Header -->
+                <div class="lim-quiz-header">
+                    <span id="lim-category" class="lim-category-badge">Category</span>
+                    <span class="lim-progress-label">
+                        Question <span id="lim-question-num">1</span> of <span id="lim-total-num">47</span>
+                    </span>
+                </div>
+
+                <!-- Progress bar -->
+                <div class="lim-progress-bar">
+                    <div id="lim-progress-fill" class="lim-progress-fill" style="width: 0%"></div>
+                </div>
+
+                <!-- Question card -->
+                <div class="lim-question-card">
+                    <h2 id="lim-question-text" class="lim-question-text">Question text appears here</h2>
+
+                    <div class="lim-input-group">
+                        <span id="lim-unit-hint" class="lim-unit-hint">Enter value in kt</span>
+                        <input type="text" id="lim-answer-input" class="lim-answer-input"
+                            placeholder="Type your answer…" autocomplete="off" autocorrect="off" autocapitalize="off"
+                            spellcheck="false">
+                        <button id="lim-submit-btn" class="lim-submit-btn">✓ Submit Answer</button>
+                    </div>
+
+                    <!-- Feedback -->
+                    <div id="lim-feedback" class="lim-feedback hidden">
+                        <div class="lim-feedback-content">
+                            <span id="lim-feedback-icon" class="lim-feedback-icon"></span>
+                            <span id="lim-feedback-text" class="lim-feedback-text"></span>
+                        </div>
+                        <div id="lim-correct-answer" class="lim-correct-answer hidden"></div>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="lim-navigation">
+                    <button id="lim-prev-btn" class="lim-nav-btn" disabled>← Previous</button>
+                    <button id="lim-next-btn" class="lim-nav-btn primary">Next →</button>
+                    <button id="lim-finish-btn" class="lim-nav-btn success hidden">🏁 Finish</button>
+                </div>
+            </div>
+
+            <!-- ── RESULTS SCREEN ──────────────────────────────────────── -->
+            <div id="lim-results-screen" class="screen">
+                <div class="lim-results-card">
+                    <div class="lim-results-icon">🎯</div>
+                    <h1 class="lim-results-title">Quiz Complete!</h1>
+
+                    <div id="lim-final-score" class="lim-score-display">0 / 0</div>
+                    <div id="lim-final-pct" class="lim-pct-display">0%</div>
+
+                    <div id="lim-perf-msg" class="lim-perf-msg"></div>
+
+                    <div class="lim-results-actions">
+                        <button id="lim-retry-btn" class="lim-action-btn primary">🔄 Try Again</button>
+                        <button id="lim-home-btn" class="lim-action-btn secondary">🏠 Home</button>
+                    </div>
+
+                    <!-- Per-question review -->
+                    <div class="lim-review-section">
+                        <h2 class="lim-review-title">📋 Question Review</h2>
+                        <div id="lim-review-list"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="a380-limits-questions.js"></script>
+    <script src="a380-limits-app.js"></script>
+</body>
+
+</html>

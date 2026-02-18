@@ -1,5 +1,5 @@
 // Service Worker Version - Update this when you want to force cache refresh
-const CACHE_VERSION = 'v1.0.0';
+const CACHE_VERSION = 'v1.2.0';
 const CACHE_NAME = `aviation-quiz-${CACHE_VERSION}`;
 
 // Files to cache for offline support
@@ -9,6 +9,12 @@ const ASSETS_TO_CACHE = [
     '/style.css',
     '/app.js',
     '/questions.js',
+    '/a380-limits.html',
+    '/a380-limits-questions.js',
+    '/a380-limits-app.js',
+    '/memory-items.html',
+    '/memory-items-data.js',
+    '/memory-items-app.js',
     '/manifest.json',
     // Add font if using external fonts
     'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'
