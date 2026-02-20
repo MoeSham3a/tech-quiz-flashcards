@@ -7,17 +7,15 @@
     <title>A380 Limitations Quiz | Aviation Tech Quiz</title>
 
     <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="./manifest.json">
 
     <!-- Theme Colors -->
     <meta name="theme-color" content="#4263eb">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="AviationQuiz">
-    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-72x72.png">
+    <link rel="apple-touch-icon" href="./icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./icons/icon-72x72.png">
 
     <!-- Description -->
     <meta name="description"
@@ -702,6 +700,14 @@
 
     <script src="a380-limits-questions.js"></script>
     <script src="a380-limits-app.js"></script>
+    <script>
+        // Register service worker so this page is cached for offline use
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./service-worker.js')
+                .then(r => console.log('[SW] Registered, scope:', r.scope))
+                .catch(e => console.warn('[SW] Registration failed:', e));
+        }
+    </script>
 </body>
 
 </html>
