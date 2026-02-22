@@ -703,6 +703,150 @@
             flex-wrap: wrap;
         }
 
+        /* ── Mode picker on proc cards ── */
+        .mi-proc-card {
+            cursor: default;
+        }
+
+        .mi-mode-btns {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .mi-mode-btn {
+            flex: 1;
+            padding: 7px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .mi-mode-btn-sort {
+            background: rgba(66, 99, 235, 0.15);
+            color: var(--accent-light);
+            border: 1px solid rgba(66, 99, 235, 0.35);
+        }
+
+        .mi-mode-btn-sort:hover {
+            background: rgba(66, 99, 235, 0.28);
+            border-color: var(--accent);
+        }
+
+        .mi-mode-btn-recall {
+            background: rgba(114, 9, 183, 0.15);
+            color: #c084fc;
+            border: 1px solid rgba(114, 9, 183, 0.35);
+        }
+
+        .mi-mode-btn-recall:hover {
+            background: rgba(114, 9, 183, 0.28);
+            border-color: #a855f7;
+        }
+
+        /* ── RECALL QUIZ SCREEN ── */
+        #mi-recall-screen {
+            display: none;
+            flex-direction: column;
+            max-width: 780px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 20px 16px 40px;
+            gap: 16px;
+        }
+
+        #mi-recall-screen.active {
+            display: flex;
+        }
+
+        .mi-recall-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mi-recall-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .mi-recall-num {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            min-width: 22px;
+            padding-top: 11px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .mi-recall-field {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .mi-recall-input {
+            width: 100%;
+            padding: 10px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.86rem;
+            outline: none;
+            transition: border-color 0.15s ease, background 0.15s ease;
+        }
+
+        .mi-recall-input:focus {
+            border-color: var(--accent);
+            background: rgba(66, 99, 235, 0.08);
+        }
+
+        .mi-recall-input.recall-correct {
+            border-color: var(--success);
+            background: var(--success-bg);
+        }
+
+        .mi-recall-input.recall-incorrect {
+            border-color: var(--danger);
+            background: var(--danger-bg);
+        }
+
+        .mi-recall-correct-answer {
+            font-size: 0.75rem;
+            color: var(--success);
+            padding: 4px 8px;
+            background: rgba(64, 192, 87, 0.08);
+            border-radius: 4px;
+            line-height: 1.4;
+            display: none;
+        }
+
+        .mi-recall-correct-answer.visible {
+            display: block;
+        }
+
+        .mi-recall-actor {
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 20px;
+            flex-shrink: 0;
+            margin-top: 10px;
+            letter-spacing: 0.05em;
+        }
+
         /* ── Responsive ── */
         @media (max-width: 480px) {
             .mi-home-title {
@@ -715,6 +859,10 @@
 
             .mi-results-actions {
                 flex-direction: column;
+            }
+
+            .mi-mode-btns {
+                flex-direction: row;
             }
         }
     </style>
@@ -739,12 +887,12 @@
                 <div class="mi-home-icon">🧠</div>
                 <h1 class="mi-home-title">Memory Items</h1>
                 <p class="mi-home-subtitle">
-                    Drag and drop the procedure steps into the correct sequence.
-                    All procedures are from the UAE A380 FCOM.
+                    Practice A380 procedures in two modes: <strong>Sort</strong> (drag &amp; drop) or
+                    <strong>Recall</strong> (type from memory).
                 </p>
             </div>
 
-            <p class="mi-section-label">Select a Procedure</p>
+            <p class="mi-section-label">Select a Procedure &amp; Mode</p>
             <div id="mi-procedure-grid" class="mi-procedure-grid"></div>
         </div>
 
@@ -779,6 +927,41 @@
                 <button id="mi-view-results-btn" class="mi-btn mi-btn-success">📊 View Results</button>
                 <button id="mi-reset-btn" class="mi-btn mi-btn-secondary">↺ Shuffle Again</button>
                 <button id="mi-home-btn" class="mi-btn mi-btn-secondary">⌂ Procedures</button>
+            </div>
+        </div>
+
+        <!-- ── RECALL QUIZ SCREEN ── -->
+        <div id="mi-recall-screen" class="mi-screen">
+
+            <!-- Procedure info -->
+            <div class="mi-quiz-header">
+                <div class="mi-quiz-header-top">
+                    <div class="mi-proc-title-text" id="mi-recall-proc-title">Procedure Title</div>
+                    <div class="mi-step-count-badge" id="mi-recall-step-count">— steps</div>
+                </div>
+                <div class="mi-proc-ref-text" id="mi-recall-proc-ref"></div>
+                <div class="mi-proc-desc-text" id="mi-recall-proc-desc"></div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="mi-instructions">
+                <span class="mi-instructions-icon">✏️</span>
+                Type each step from memory in order, then tap <strong>&nbsp;Check Answers</strong>. Actor shown as a
+                hint.
+            </div>
+
+            <!-- Feedback banner -->
+            <div id="mi-recall-feedback" class="mi-feedback-banner hidden"></div>
+
+            <!-- Input rows -->
+            <div id="mi-recall-inputs" class="mi-recall-inputs"></div>
+
+            <!-- Actions -->
+            <div class="mi-quiz-actions">
+                <button id="mi-recall-check-btn" class="mi-btn mi-btn-primary">✓ Check Answers</button>
+                <button id="mi-recall-reveal-btn" class="mi-btn mi-btn-success">👁 Reveal All</button>
+                <button id="mi-recall-retry-btn" class="mi-btn mi-btn-secondary">↺ Try Again</button>
+                <button id="mi-recall-home-btn" class="mi-btn mi-btn-secondary">⌂ Procedures</button>
             </div>
         </div>
 
