@@ -87,9 +87,9 @@ const memoryItemsProcedures = [
             },
             {
                 id: 5,
-                text: 'SPEED BRAKE LEVER — FULL (if A/THR not active)',
+                text: 'SPEED BRAKE LEVER — FULL',
                 actor: 'PF',
-                note: 'Only if A/THR is not active.'
+                note: null
             },
         ]
     },
@@ -200,13 +200,49 @@ const memoryItemsProcedures = [
                 id: 4,
                 text: 'ALL THR LEVERS — TOGA',
                 actor: 'PF',
-                note: 'Before thrust reduction. Pitch target: 12.5° below 10,000 ft / 10° above 10,000 ft.'
+                note: 'Before thrust reduction.'
             },
             {
                 id: 5,
+                text: 'Pitch target: 12.5° below 10,000 ft / 10° above 10,000 ft',
+                actor: 'PF',
+                note: 'Before thrust reduction.'
+            },
+            {
+                id: 6,
                 text: 'ALL THR LEVERS — CLB',
                 actor: 'PF',
                 note: 'After thrust reduction. Pitch target: 12.5° below FL100 / 10° FL100–FL250 / 5° above FL250.'
+            },
+            {
+                id: 7,
+                text: 'Pitch target: 12.5° below FL100 / 10° FL100–FL250 / 5° above FL250',
+                actor: 'PF',
+                note: 'After thrust reduction.'
+            },
+            {
+                id: 8,
+                text: 'In Climb, adjust pitch target',
+                actor: 'PF',
+                note: 'Below FL250'
+            },
+            {
+                id: 9,
+                text: 'Flaps select 3',
+                actor: 'PF',
+                note: 'If Flaps FULL.'
+            },
+            {
+                id: 10,
+                text: 'Flaps and Landing gear: Maintain current configuration',
+                actor: 'PF',
+                note: 'Below FL250'
+            },
+            {
+                id: 11,
+                text: 'Speed brakes check retracted',
+                actor: 'PF',
+                note: null
             },
         ]
     },
