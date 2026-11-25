@@ -936,5 +936,23 @@ const a380LimitsQuestions = [
         hint: 'Enter in feet (negative value)',
         acceptedAnswers: ['-1000', '-1,000', '-1000ft', '-1,000ft']
     },
+    {
+        id: 101,
+        category: 'Engine',
+        question: 'What is the minimum engine oil quantity (EA engines)?',
+        answer: '15.5, 19, full',
+        unit: 'Quarts',
+        hint: 'Enter in Quarts (as a range or "full")',
+        acceptedAnswers: ['15.5', '19', 'full']
+    },
+    {
+        id: 102,
+        category: 'Engine',
+        question: 'What is the minimum engine oil quantity (RR engines)?',
+        answer: '10, 6+0.5',
+        unit: 'Quarts',
+        hint: 'Enter in Quarts (as a range or "full")',
+        acceptedAnswers: ['10', '6+0.5']
+    },
 
 ];

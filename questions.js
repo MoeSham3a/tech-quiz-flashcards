@@ -163,7 +163,7 @@ const questionDatabase = {
       ],
       "correct_answer": 3,
       "correct_answer_indication": "Significant Weather Documentation",
-      "source_notes": "NOTE: ACTUAL EXAM QUESTION",
+      "source_notes": "NOTE: May have moved to Open Book Section",
       "citation": "[13, 14]"
     },
     {
@@ -278,7 +278,7 @@ const questionDatabase = {
       "manual": "OMA",
       "reference": "OMA 8.1.11",
       "topic": "Documents",
-      "question": "The	Tech	Log	must	be	filled	out	in	accordance	with	which	manual?",
+      "question": "The Tech Log	must be	filled out in	accordance with	which	manual?",
       "options": [
         "a. MEL/CDL",
         "b. FCOM",
@@ -456,7 +456,7 @@ const questionDatabase = {
       "id": "CB_OMA_015",
       "section": "Closed Book",
       "manual": "OMA",
-      "reference": "OMA 8.1.7.5",
+      "reference": "OMA 8.1.7.1.5",
       "topic": "Fuel",
       "question": "What is Final Reserve Fuel?",
       "options": [
@@ -476,7 +476,7 @@ const questionDatabase = {
       "manual": "OMA",
       "reference": "OMA 8.3.7.2",
       "topic": "Fuel",
-      "question": "If	during	the	in-flight	fuel	check	the	expected	fuel	on	arrival	at	the	destination	is	less	than	Alternate	fuel plus	final	reserve	fuel,	could	you	continue	to	destination	without	knowing	the	EAT?",
+      "question": "If	during the in-flight fuel	check	the	expected fuel	on arrival at	the	destination	is less	than Alternate fuel plus final reserve fuel, could you continue	to destination without knowing the EAT?",
       "options": [
         "a. Yes",
         "b. No",
@@ -494,7 +494,7 @@ const questionDatabase = {
       "manual": "OMA",
       "reference": "OMA 8.2.4",
       "topic": "Cold Weather Operations",
-      "question": "How many mm if frost is allowed under the wing?",
+      "question": "How many mm of frost is allowed under the wing?",
       "options": [
         "a. 1mm",
         "b. 2mm",
@@ -1264,7 +1264,7 @@ const questionDatabase = {
       "id": "CB_OMA_034",
       "section": "Closed Book",
       "manual": "OMA",
-      "reference": "OMA 8.1.3.1.1",
+      "reference": "OMA 8.3.20.2.22.4",
       "topic": "Policy",
       "question": "What is the required visibility for circling minima?",
       "options": [
@@ -1788,7 +1788,7 @@ const questionDatabase = {
       "manual": "FCOM",
       "reference": "FCOM-SYS-Rain Removal-System Description-Wipers/LIM-Aircraft General-Speeds-Windshield Wipers Maximum Speed",
       "topic": "Ice and Rain Protection",
-      "question": "When can you operate the windshield wipe?",
+      "question": "When can you operate the windshield wipers?",
       "options": [
         "a. Taxi",
         "b. Take-off with a max speed of 250kts",
@@ -1806,7 +1806,7 @@ const questionDatabase = {
       "manual": "FCOM",
       "reference": "FCOM-SYS-30-Rain Removal-System Description-Wipers",
       "topic": "Ice and Rain Protection",
-      "question": "When can you operate the windshield wipe?",
+      "question": "When can you operate the windshield wipers?",
       "options": [
         "a. Takeoff, Approach and landing only",
         "b. Take-off with a max speed of 300kts",
@@ -2940,10 +2940,10 @@ const questionDatabase = {
       "manual": "FCOM",
       "reference": "FCOM-SYS-32-System Description-Braking System-Parking Brake",
       "topic": "Brakes",
-      "question": "If PARK BRK set ON and pedal depressed by flight crew?",
+      "question": "How does the flight crew recover pedal braking with parking brake on?",
       "options": [
         "a. The highest commanded pressure between Park brake, Normal brake and Alternate brake will always apply to each gear.",
-        "b. ",
+        "b. Average between park BRK, normal BRK and alternate BRK",
         "c. ",
         "d. "
       ],
@@ -3555,7 +3555,7 @@ const questionDatabase = {
       "manual": "OMA",
       "reference": "OMA 8.1.3.1",
       "topic": "Policy",
-      "question": "An Adequate should fulfil which criteria?",
+      "question": "An Adequate should fulfill which criteria?",
       "options": [
         "a. Has a runway that is long enough to safely bring an aircraft to a stop within the landing distance available clearing all obstacles in the approach path by a safe margin.",
         "b. Is expected to be available if required.",
@@ -4438,15 +4438,15 @@ const questionDatabase = {
       "manual": "FCOM",
       "reference": "FCOM-GEN-GMAI",
       "topic": "Autoflight",
-      "question": "When does the Climb Phase erroneous transition during a Go Around?",
+      "question": "When may the FMS erroneously change from GO-AROUND phase to the CLIMB Phase?",
       "options": [
-        "a. If the flight crew performs several missed approaches with both following conditions: i. The acceleration alt set in the FMS for the current go-around is above the accelerations alt set during the previous go-around ii. The flight crew initiates the go-around, when the alt of the aircraft is above the acceleration alt set during the previous go-around.",
-        "b. ",
-        "c. ",
-        "d. ",
+        "a. The FMS may erroneously change from GO AROUND phase to CLIMB phase if the flight crew performs several missed approaches with both following conditions\n1. The acc altitude set in the FMS for the current go around is above the acceleration altitude set during the previous go around\n2. The flight crew initiates the go around when the altitude of the aircraft is above acceleration altitude set during the previous go around",
+        "b. Only after thrust reduction on go around using soft mode",
+        "c. Above thrust reduction altitude and above 3000ft",
+        "d. The FMS may erroneously change from GO Around phase to CLIMB phase if the flight crew sets the go around altitude below thrust reduction altitude after performing several go arounds at the same airport",
       ],
       "correct_answer": 0,
-      "correct_answer_indication": "If the flight crew performs several missed approaches with both following conditions: i. The acceleration alt set in the FMS for the current go-around is above the accelerations alt set during the previous go-around ii. The flight crew initiates the go-around, when the alt of the aircraft is above the acceleration alt set during the previous go-around.",
+      "correct_answer_indication": "The FMS may erroneously change from GO AROUND phase to CLIMB phase if the flight crew performs several missed approaches with both following conditions\n1. The acc altitude set in the FMS for the current go around is above the acceleration altitude set during the previous go around\n2. The flight crew initiates the go around when the altitude of the aircraft is above acceleration altitude set during the previous go around",
       "source_notes": "",
       "citation": ""
     },
@@ -4703,7 +4703,7 @@ const questionDatabase = {
       "citation": ""
     },
     {
-      "id": "CB_OMA_077",
+      "id": "CB_OMA_049",
       "section": "Closed Book",
       "manual": "OMA",
       "reference": "OMA 6.1.15",
@@ -4753,6 +4753,114 @@ const questionDatabase = {
       ],
       "correct_answer": 0,
       "correct_answer_indication": "Aircraft shall be loaded in accordance with the respective Weight and Balance Manual to obtain the best Centre of gravity that the load permits. This responsibility lies with the Handling Agent/Loadmaster who should ensure that the Centre of gravity limits are not exceeded",
+      "source_notes": "",
+      "citation": ""
+    },
+    {
+      "id": "CB_OMA_050",
+      "section": "Closed Book",
+      "manual": "OMA",
+      "reference": "OMA 6.4",
+      "topic": "Policy",
+      "question": "Who	is	responsible	for	the	timing	renewal	of	a	medical	certificate?",
+      "options": [
+        "a. Flight Ops Department",
+        "b. Crew Records Department",
+        "c. Individual crew member",
+        "d. EK Aviation Medical Department",
+      ],
+      "correct_answer": 2,
+      "correct_answer_indication": "Individual crew member",
+      "source_notes": "",
+      "citation": ""
+    },
+    {
+      "id": "CB_OMA_051",
+      "section": "Closed Book",
+      "manual": "OMA",
+      "reference": "OMA 8.1.3.1.1",
+      "topic": "Policy",
+      "question": "What	are the applicable planning	minima for Takeoff alternates?",
+      "options": [
+        "a. At least CAT 1 WX	conditions",
+        "b. At least CAT 1 WX	conditions plus 200m visibility/RVR",
+        "c. Same as the planning minimuum for Destination Alternate airports",
+        "d. Applicable landing minima",
+      ],
+      "correct_answer": 3,
+      "correct_answer_indication": "Applicable landing minima",
+      "source_notes": "",
+      "citation": ""
+    },
+    {
+      "id": "CB_OMA_052",
+      "section": "Closed Book",
+      "manual": "OMA",
+      "reference": "OMA 8.3.7.2",
+      "topic": "Policy",
+      "question": "What	weather must you use within 2 hours of your destination?",
+      "options": [
+        "a. Actual weather and trend information may be used",
+        "b. Actual weather. No trend information may be used",
+        "c. Forecast weather",
+        "d. None of the above",
+      ],
+      "correct_answer": 0,
+      "correct_answer_indication": "Actual weather and trend information may be used",
+      "source_notes": "",
+      "citation": ""
+    },
+    {
+      "id": "CB_FCOM_043",
+      "section": "Closed Book",
+      "manual": "FCOM",
+      "reference": "FCOM-NOR-SOP-GOAROUND",
+      "topic": "Procedure",
+      "question": "If during a go around you don't see MAN GA SOFT or MAN TOGA on the FMA, what is your immediate action?",
+      "options": [
+        "a. Change the Autopilot selection and recycle A/THR",
+        "b. Manually put the thrust levers in the TOGA detent",
+        "c. Prepare to manually control thrust",
+        "d. Recycle the A/THR button",
+      ],
+      "correct_answer": 1,
+      "correct_answer_indication": "Manually put the thrust levers in the TOGA detent",
+      "source_notes": "",
+      "citation": ""
+    },
+    {
+      "id": "OB_FCTM_043",
+      "section": "Open Book",
+      "manual": "FCTM",
+      "reference": "FCTM-AEP-FUEL",
+      "topic": "Fuel",
+      "question": "Where will you find the percentage fuel increased listed?",
+      "options": [
+        "a. FCOM Abnormal Procedure layer 2 (Long aswer in the exam)",
+        "b. ",
+        "c. ",
+        "d. ",
+      ],
+      "correct_answer": 0,
+      "correct_answer_indication": "FCOM Abnormal Procedure layer 2 (Long aswer in the exam)",
+      "source_notes": "",
+      "citation": ""
+    },
+    {
+      "id": "OB_FCOM_044",
+      "section": "Open Book",
+      "manual": "FCOM",
+      "reference": "FCOM-SYS-AFS-FMS-SYS DES-PERF-PERF ASSUMP",
+      "topic": "Fuel",
+      "question": "FMS fuel predicttions are reliable except when?",
+      "options": [
+        "a. Failures that affect fuel consumption, the predictions that the FMS provides are no longer reliable, execept the one engine inoperative case. The flight crew must still compute & monitor the actual fuel consumption",
+        "b. ",
+        "c. ",
+        "d. ",
+      ],
+      "correct_answer": 0,
+      "correct_answer_indication": "Failures that affect fuel consumption, the predictions that the FMS provides are no longer reliable, execept the one engine inoperative case. The flight crew must still compute & monitor the actual fuel consumption",
       "source_notes": "",
       "citation": ""
     },
